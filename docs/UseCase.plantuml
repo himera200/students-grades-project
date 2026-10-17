@@ -1,15 +1,15 @@
-plantuml
-@startuml
-left to right direction 
+
+@startuml 
+top to bottom direction
 skinparam packageStyle rectangle
 
-actor "Студент' as Student 
+actor "Студент" as Student 
 actor "Преподаватель" as Teacher
 actor "Администратор" as Admin
 
 package "Сиситема учета оценок студентов" {
     usecase "Регистрация в системе" as UC_Register
-    usecase "Фвторизация (Вход)" as UC_Auth
+    usecase "А я вторизация (Вход)" as UC_Auth
  
     usecase "Просмотр своих оценок и среднего балла" as UC_ViemGrades
     usecase "Просмотр задолжностей" as UC_ViemDebits
@@ -44,5 +44,5 @@ Teacher-->UC_MakeReport
 Admin-->UC_ManageUsers
 Admin-->UC_ManageGroups
 Admin-->UC_AssgnTeacher
-Admin-->UC_MakeReport
+Admin-->UC_ManageSchedule
 @enduml
