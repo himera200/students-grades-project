@@ -1,48 +1,49 @@
-
-@startuml 
-top to bottom direction
+@startuml
+left to right direction
 skinparam packageStyle rectangle
 
-actor "Студент" as Student 
+actor "Гость" as Guest
+actor "Студент" as Student
 actor "Преподаватель" as Teacher
 actor "Администратор" as Admin
 
-package "Сиситема учета оценок студентов" {
-    usecase "Регистрация в системе" as UC_Register
-    usecase "А я вторизация (Вход)" as UC_Auth
- 
-    usecase "Просмотр своих оценок и среднего балла" as UC_ViemGrades
-    usecase "Просмотр задолжностей" as UC_ViemDebits
-
-usecase "Выставление оценок" as UC_AddGrade
-usecase "РЕдактирование оценок" as UC_EditGrade
-usecase "Просмотр ведомости по группе" as UC_ViemRgistry
-usecase "Формирование отчета по успеваемости" as UC_MakeReport
-
-usecase "Управление пользователями\n(студенты, преподаватели)" as UC_ManageUsers
-usecase "Управление группами и предметами" as UC_ManageGroups
-usecase "Назначение преподавателяна предмет" as UC_AssgnTeacher
-usecase "Управление расписанием аттестаций" as UC_ManageSchedule
+rectangle "Система «Учёт оценок студентов»" {
+    usecase "UC-1: Регистрация и авторизация" as UC_Auth
+    
+    usecase "UC-2: Просмотр своих оценок и среднего балла" as UC_ViewGrades
+    usecase "UC-3: Просмотр задолженностей" as UC_ViewDebts
+    
+    usecase "UC-4: Выставление оценки студенту" as UC_AddGrade
+    usecase "UC-5: Редактирование ранее выставленной оценки" as UC_EditGrade
+    usecase "UC-6: Просмотр ведомости по группе" as UC_ViewGroupW
+    usecase "UC-7: Формирование отчёта по успеваемости группы" as UC_ReportGroup
+    
+    usecase "UC-8: Управление студентами\n(добавление, изменение, удаление)" as UC_ManageStudents
+    usecase "UC-9: Управление преподавателями" as UC_ManageTeachers
+    usecase "UC-10: Управление группами и предметами" as UC_ManageRefs
+    usecase "UC-11: Назначение преподавателя на предмет" as UC_AssignTeacher
 }
 
-Student -->UC_Register
-Teacher-->UC_Register
-Admin-->UC_Register
+' Все пользователи начинают как Гости или проходят авторизацию
+Guest --> UC_Auth
+Student --> UC_Auth
+Teacher --> UC_Auth
+Admin --> UC_Auth
 
-Student-->UC_Auth
-Teacher-->UC_Auth
-Admin-->UC_Auth
+' Связи Студента
+Student --> UC_ViewGrades
+Student --> UC_ViewDebts
 
-Student-->UC_ViemGrades
-Student-->UC_ViemDebits
+' Связи Преподавателя
+Teacher --> UC_AddGrade
+Teacher --> UC_EditGrade
+Teacher --> UC_ViewGroupW
+Teacher --> UC_ReportGroup
 
-Teacher-->UC_AddGrade
-Teacher-->UC_EditGrade
-Teacher-->UC_ViemRgistry
-Teacher-->UC_MakeReport
+' Связи Администратора
+Admin --> UC_ManageStudents
+Admin --> UC_ManageTeachers
+Admin --> UC_ManageRefs
+Admin --> UC_AssignTeacher
 
-Admin-->UC_ManageUsers
-Admin-->UC_ManageGroups
-Admin-->UC_AssgnTeacher
-Admin-->UC_ManageSchedule
 @enduml
