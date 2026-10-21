@@ -28,17 +28,14 @@ rectangle "Подсистема: Панель Администратора" {
     usecase "UC-10: Назначение преподавателя на учебный предмет" as UC_AssignTeacher
 }
 
-' --- Связи авторизованного Студента ---
 Student -- UC_ViewGrades
 Student -- UC_ViewDebts
 
-' --- Связи авторизованного Преподавателя ---
 Teacher -- UC_AddGrade
 Teacher -- UC_EditGrade
 Teacher -- UC_ViewGroupW
 Teacher -- UC_ReportGroup
 
-' --- Связи авторизованного Администратора ---
 Admin -- UC_ManageStudents
 Admin -- UC_ManageTeachers
 Admin -- UC_ManageRefs
