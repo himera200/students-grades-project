@@ -24,26 +24,26 @@ rectangle "Система «Учёт оценок студентов»" {
     usecase "UC-11: Назначение преподавателя на предмет" as UC_AssignTeacher
 }
 
-' Все пользователи начинают как Гости или проходят авторизацию
-Guest --> UC_Auth
-Student --> UC_Auth
-Teacher --> UC_Auth
-Admin --> UC_Auth
+' --- БЛОК СВЯЗЕЙ ДЛЯ ГОСТЯ ---
+Guest -- UC_Auth
 
-' Связи Студента
-Student --> UC_ViewGrades
-Student --> UC_ViewDebts
+' --- БЛОК СВЯЗЕЙ ДЛЯ СТУДЕНТА ---
+Student -- UC_Auth
+Student -- UC_ViewGrades
+Student -- UC_ViewDebts
 
-' Связи Преподавателя
-Teacher --> UC_AddGrade
-Teacher --> UC_EditGrade
-Teacher --> UC_ViewGroupW
-Teacher --> UC_ReportGroup
+' --- БЛОК СВЯЗЕЙ ДЛЯ ПРЕПОДАВАТЕЛЯ ---
+Teacher -- UC_Auth
+Teacher -- UC_AddGrade
+Teacher -- UC_EditGrade
+Teacher -- UC_ViewGroupW
+Teacher -- UC_ReportGroup
 
-' Связи Администратора
-Admin --> UC_ManageStudents
-Admin --> UC_ManageTeachers
-Admin --> UC_ManageRefs
-Admin --> UC_AssignTeacher
+' --- БЛОК СВЯЗЕЙ ДЛЯ АДМИНИСТРАТОРА ---
+Admin -- UC_Auth
+Admin -- UC_ManageStudents
+Admin -- UC_ManageTeachers
+Admin -- UC_ManageRefs
+Admin -- UC_AssignTeacher
 
 @enduml
