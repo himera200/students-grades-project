@@ -1,7 +1,6 @@
-Text
-
+_pycache_/
+*.py[cod]
+.venv/
+venv/
 .vscode/
-.DS_Store
-*.log
-__pycache_/
-*.png
+.idea/
