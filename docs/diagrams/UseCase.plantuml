@@ -1,44 +1,52 @@
-@startuml
+@startuml 
 left to right direction
-skinparam packageStyle rectangle
 
 actor "Студент" as Student
 actor "Преподаватель" as Teacher
 actor "Администратор" as Admin
 
-' 1. МОДУЛЬ СТУДЕНТА
-rectangle "Подсистема: Личный кабинет Студента" {
-    usecase "UC-1: Просмотр личных оценок и среднего балла" as UC_ViewGrades
-    usecase "UC-2: Просмотр академических задолженностей" as UC_ViewDebts
+rectangle "Учет оценок студентов"{
+    
+    usecase "Регистрация студента" as UC_RegStudent
+    usecase "Регистрация преподавателя" as UC_RegTeacher
+    
+    usecase "Авторизация" as UC_LoginStudent
+    usecase "Авторизацияч" as UC_LoginTeacher
+    usecase "Авторизацияч" as UC_LoginAdmin
+
+    usecase "UC-3: Просмотр своих оценок и среднего балла" as UC_ViewGrades
+    usecase "UC-4: Просмотр академических задолженностей" as UC_ViewDebts
+
+
+    usecase "UC-5: Выставление текущей оценки студенту" as UC_AddGrade
+    usecase "UC-6: Редактирование ранее выставленной оценки" as UC_EditGrade
+    usecase "UC-7: Просмотр академической ведомости по группе" as UC_ViewGroupW
+    usecase "UC-8: Формирование аналитического отчёта по успеваемости" as UC_ReportGroup
+
+    usecase "UC-9: Управление учётными записями студентов" as UC_ManageStudents
+    usecase "UC-10: Управление учётными записями преподавателей" as UC_ManageTeachers
+    usecase "UC-11: Модерация справочников групп и предметов" as UC_ManageRefs
+    usecase "UC-12: Назначение преподавателя на учебный предмет" as UC_AssignTeacher
 }
 
-' 2. МОДУЛЬ ПРЕПОДАВАТЕЛЯ
-rectangle "Подсистема: АРМ Преподавателя" {
-    usecase "UC-3: Выставление текущей оценки студенту" as UC_AddGrade
-    usecase "UC-4: Редактирование ранее выставленной оценки" as UC_EditGrade
-    usecase "UC-5: Просмотр академической ведомости по группе" as UC_ViewGroupW
-    usecase "UC-6: Формирование аналитического отчёта по успеваемости" as UC_ReportGroup
-}
+Student -- UC_RegStudent
+Student -- UC_LoginStudent
+Teacher -- UC_RegTeacher
+Teacher -- UC_LoginTeacher
+Admin -- UC_LoginAdmin
 
-' 3. МОДУЛЬ АДМИНИСТРАТОРА
-rectangle "Подсистема: Панель Администратора" {
-    usecase "UC-7: Управление учётными записями студентов" as UC_ManageStudents
-    usecase "UC-8: Управление учётными записями преподавателей" as UC_ManageTeachers
-    usecase "UC-9: Модерация справочников групп и предметов" as UC_ManageRefs
-    usecase "UC-10: Назначение преподавателя на учебный предмет" as UC_AssignTeacher
-}
 
-Student -- UC_ViewGrades
-Student -- UC_ViewDebts
+UC_LoginStudent -- UC_ViewGrades
+UC_LoginStudent -- UC_ViewDebts
 
-Teacher -- UC_AddGrade
-Teacher -- UC_EditGrade
-Teacher -- UC_ViewGroupW
-Teacher -- UC_ReportGroup
+UC_LoginTeacher -- UC_AddGrade
+UC_LoginTeacher -- UC_EditGrade
+UC_LoginTeacher -- UC_ViewGroupW
+UC_LoginTeacher -- UC_ReportGroup
 
-Admin -- UC_ManageStudents
-Admin -- UC_ManageTeachers
-Admin -- UC_ManageRefs
-Admin -- UC_AssignTeacher
+UC_LoginAdmin -- UC_ManageStudents
+UC_LoginAdmin -- UC_ManageTeachers
+UC_LoginAdmin -- UC_ManageRefs
+UC_LoginAdmin -- UC_AssignTeacher
 
 @enduml
