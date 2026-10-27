@@ -1,0 +1,111 @@
+@startuml ER 
+title ER-диаграмма базы данных 
+"Учет оценок студентов"
+
+hide circle 
+skinparam linetype ortho
+skinparam shadowing false 
+skinparam dpi 150
+
+entity "user_roles" as user_roles {
+    * <color:#E0A800><&key></color>
+role_id : INTEGER <<PK>>
+    --
+    * name : TEXT
+}
+
+entity "users" as users {
+    * <color:#E0A800><&key></color>
+user_id : INTEGER <<PK>>
+    --
+    * surname : TEXT
+    * name : TEXT
+    patronymic : TEXT
+    * email : TEXT
+    * login : TEXT
+    * password_hash : TEXT
+    * role_id : INTEGER <<FK>>
+}
+
+entity "student_groups" as student_groups {
+    * <color:#E0A800><&key></color>
+group_id : INTEGER <<PK>>
+    --
+    * name : TEXT 
+    * course : INTEGER
+    * faculty : TEXT
+}
+
+entity "students" as students {
+    * <color:#E0A800><&key></color>
+student_id : INTEGER <<PK>>
+    --
+    * user_id : INTEGER <<FK>>
+    * group_id : INTEGER <<FK>>
+    * record_book_number : TEXT
+}
+
+entity "teachers" as teachers {
+    * <color:#E0A800><&key></color>
+teacher_id : INTEGER <<PK>>
+    --
+    * user_id : INTEGER <<FK>>
+    * department : TEXT 
+}
+
+entity "subjects" as subjects {
+    * <color:#E0A800><&key></color>
+subject_id : INTEGER <<PK>>
+    --
+    * name : TEXT
+    * hours : INTEGER
+    * semestr : INTEGER
+}
+
+entity "teacher_subjects" as teacher_subjects {
+    * <color:#E0A800><&key></color>
+teacher_id : INTEGER <<PK, FK>>
+    * <color:#E0A800><&key></color>
+subject_id : INTEGER <<PK, FK>>
+}
+
+entity  "attestations" as attestations {
+    * <color:#E0A800><&key></color>
+attestation_id : INTEGER <<PK>>
+    --
+    * subject_id : INTEGER <<FK>>
+    * group_id : INTEGER <<FK>>
+    * attest_date : TEXT
+    * kind : TEXT
+}
+
+entity  "grades" as grades {
+    * <color:#E0A800><&key></color>
+grade_id : INTEGER <<PK>>
+    --
+    * student_id : INTEGER <<FK>>
+    * subject_id : INTEGER <<FK>>
+    * teacher_id : INTEGER <<FK>>
+    * value : INTEGER
+    * grade_date : TEXT
+    comment : TEXT
+}
+
+' Связи 1:N
+user_roles       ||--o{ users: "1 : N"
+student_groups   ||--o{ students: "1 : N"
+students         ||--o{ grades: "1 : N"
+subjects         ||--o{ grades: "1 : N"
+teachers         ||--o{ grades: "1 : N"
+
+' Связь 1:1
+users      ||--o| students: "1 : 1"
+users      ||--o| teachers: "1 : 1"
+
+' Связь M:N через таблицу-связки 
+teachers               ||--o{ teacher_subjects: "1 : N"
+teachers_subjects      ||--o{ subjects: "1 : N"
+subjects               ||--o{ attestations: "1 : N"
+student_groups         ||--o{ attestations: "1 : N"
+
+@enduml
