@@ -11,22 +11,22 @@ rectangle "Учет оценок студентов"{
     usecase "Регистрация преподавателя" as UC_RegTeacher
     
     usecase "Авторизация" as UC_LoginStudent
-    usecase "Авторизацияч" as UC_LoginTeacher
-    usecase "Авторизацияч" as UC_LoginAdmin
+    usecase "Авторизация" as UC_LoginTeacher
+    usecase "Авторизация" as UC_LoginAdmin
 
-    usecase "UC-3: Просмотр своих оценок и среднего балла" as UC_ViewGrades
-    usecase "UC-4: Просмотр академических задолженностей" as UC_ViewDebts
+    usecase " Просмотр своих оценок и среднего балла" as UC_ViewGrades
+    usecase " Просмотр академических задолженностей" as UC_ViewDebts
 
 
-    usecase "UC-5: Выставление текущей оценки студенту" as UC_AddGrade
-    usecase "UC-6: Редактирование ранее выставленной оценки" as UC_EditGrade
-    usecase "UC-7: Просмотр академической ведомости по группе" as UC_ViewGroupW
-    usecase "UC-8: Формирование аналитического отчёта по успеваемости" as UC_ReportGroup
+    usecase " Выставление текущей оценки студенту" as UC_AddGrade
+    usecase " Редактирование ранее выставленной оценки" as UC_EditGrade
+    usecase " Просмотр академической ведомости по группе" as UC_ViewGroupW
+    usecase " Формирование аналитического отчёта по успеваемости" as UC_ReportGroup
 
-    usecase "UC-9: Управление учётными записями студентов" as UC_ManageStudents
-    usecase "UC-10: Управление учётными записями преподавателей" as UC_ManageTeachers
-    usecase "UC-11: Модерация справочников групп и предметов" as UC_ManageRefs
-    usecase "UC-12: Назначение преподавателя на учебный предмет" as UC_AssignTeacher
+    usecase " Управление учётными записями студентов" as UC_ManageStudents
+    usecase " Управление учётными записями преподавателей" as UC_ManageTeachers
+    usecase " Модерация справочников групп и предметов" as UC_ManageRefs
+    usecase " Назначение преподавателя на учебный предмет" as UC_AssignTeacher
 }
 
 Student -- UC_RegStudent
