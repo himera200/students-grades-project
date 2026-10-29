@@ -78,4 +78,4 @@
 ## 3. Проектирование базы данных
 База данных реализована в SQLite. Структура описана в файле src/students_grades/database/schema.sql.
 
-![ER-диаграмма] (docs/diagrams/ER.png)
+![ER-диаграмма](docs/diagrams/ER.png)
