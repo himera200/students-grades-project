@@ -74,3 +74,12 @@ CREATE TABLE grades (
     FOREIGN KEY ( subject_id) REFERENCES subjects ( subject_id),
     FOREIGN KEY ( teacher_id) REFERENCES teachers ( teacher_id)
 );
+
+INSERT INTO user_roles (name)
+VALUES ('Student'), ('Teacher'), ('Admin');
+
+INSERT INTO student_groups (name, course, faculty)
+VALUES ('ИВТ-21', 2, 'Информатика'), ('ИВТ-22', 2, 'Информатика'), ('ПИ-11', 1, 'Информатика');
+
+INSERT INTO subjects ( name, hours, semester)
+VALUES ('Информатика', 72, 1), ('Математика', 108, 1), ('Программирование', 144, 2), ('База данных', 108,3);
