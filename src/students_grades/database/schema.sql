@@ -82,4 +82,8 @@ INSERT INTO student_groups (name, course, faculty)
 VALUES ('ИВТ-21', 2, 'Информатика'), ('ИВТ-22', 2, 'Информатика'), ('ПИ-11', 1, 'Информатика');
 
 INSERT INTO subjects ( name, hours, semester)
-VALUES ('Информатика', 72, 1), ('Математика', 108, 1), ('Программирование', 144, 2), ('База данных', 108,3);
+VALUES ('Информатика', 72, 1), ('Математика', 108, 1), ('Программирование', 144, 2), ('Базы данных', 108, 3);
+
+INSERT INTO users (surname, name, patronymic, email, login, password_hash, role_id)
+ VALUES ('Иванов', 'Иван', 'Иванович', 'ivanov@mail.ru', 'ivanov', 'hash1', 1), ('Петрова', 'Анна', 'Сергеевна', 'petrova@mail.ru', 'petrova', 'hash2', 1), ('Сидоров', 'Пётр', 'Алексеевич', 'sidorov@mail.ru', 'sidorov', 'hash3', 1), ('Смирнова', 'Ольга', 'Николаевна', 'smirnova@mail.ru', 'smirnova', 'hash4', 2), ('Козлов', 'Дмитрий', 'Андреевич', 'kozlov@mail.ru', 'kozlov', 'hash5', 2), ('Админов', 'Админ', NULL, 'admin@mail.ru', 'admin', 'hash6', 3);
+ 
