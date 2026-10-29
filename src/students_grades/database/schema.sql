@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS grades;
+DROP TABLE IF EXISTS teacher_subjects;
+DROP TABLE IF EXISTS teacher;
+DROP TABLE IF EXISTS students;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS subjects;
+DROP TABLE IF EXISTS student_groups;
+DROP TABLE IF EXISTS user_roles;
