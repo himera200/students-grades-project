@@ -58,6 +58,6 @@ CREATE TABLE teacher_subjects (
     teacher_id INTEGER NOT NULL,
     subject_id INTEGER NOT NULL,
     PRIMARY KEY ( teacher_id, subject_id),
-    FOREIGN KEY ( teacher_id) REFERENCES users ( teacher_id),
-    FOREIGN KEY ( subject_id) REFERENCES users ( subject_id)
+    FOREIGN KEY ( teacher_id) REFERENCES teachers ( teacher_id),
+    FOREIGN KEY ( subject_id) REFERENCES subjects ( subject_id)
 );
