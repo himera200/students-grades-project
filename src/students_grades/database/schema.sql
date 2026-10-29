@@ -69,7 +69,7 @@ CREATE TABLE grades (
     teacher_id INTEGER NOT NULL,
     value INTEGER NOT NULL,
     grade_date TEXT NOT NULL,
-    comment TEXT
+    comment TEXT,
     FOREIGN KEY ( student_id) REFERENCES students ( student_id),
     FOREIGN KEY ( subject_id) REFERENCES subjects ( subject_id),
     FOREIGN KEY ( teacher_id) REFERENCES teachers ( teacher_id)
