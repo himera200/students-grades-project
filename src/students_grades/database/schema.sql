@@ -44,14 +44,14 @@ CREATE TABLE students (
     group_id INTEGER NOT NULL,
     record_book_number TEXT NOT NULL UNIQUE,
     FOREIGN KEY ( user_id) REFERENCES users ( user_id),
-    FOREIGN KEY ( group_id) REFERENCES users ( group_id)
+    FOREIGN KEY ( group_id) REFERENCES student_groups ( group_id)
 );
 
 CREATE TABLE teachers (
     teacher_id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL UNIQUE,
-    department INTEGER NOT NULL,
-    FOREIGN KEY ( user_id) REFERENCES users ( user_id),
+    department TEXT NOT NULL,
+    FOREIGN KEY ( user_id) REFERENCES users ( user_id)
 );
 
 CREATE TABLE teacher_subjects (
@@ -59,5 +59,5 @@ CREATE TABLE teacher_subjects (
     subject_id INTEGER NOT NULL,
     PRIMARY KEY ( teacher_id, subject_id),
     FOREIGN KEY ( teacher_id) REFERENCES users ( teacher_id),
-    FOREIGN KEY ( subject_id) REFERENCES users ( subject_id),
+    FOREIGN KEY ( subject_id) REFERENCES users ( subject_id)
 );
