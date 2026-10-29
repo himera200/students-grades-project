@@ -6,3 +6,22 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS subjects;
 DROP TABLE IF EXISTS student_groups;
 DROP TABLE IF EXISTS user_roles;
+
+CREATE TABLE user_roles (
+    role_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL UNIQUE
+);
+
+CREATE TABLE student_groups (
+    group.id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL UNIQUE,
+    course INTEGER NOT NULL,
+    faculty TEXT NOT NULL
+);
+
+CREATE TABLE subjects (
+    subject_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    hours INTEGER NOT NULL,
+    semester INTEGER NOT NULL
+);
