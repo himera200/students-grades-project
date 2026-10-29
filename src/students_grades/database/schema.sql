@@ -13,7 +13,7 @@ CREATE TABLE user_roles (
 );
 
 CREATE TABLE student_groups (
-    group.id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL UNIQUE,
     course INTEGER NOT NULL,
     faculty TEXT NOT NULL
