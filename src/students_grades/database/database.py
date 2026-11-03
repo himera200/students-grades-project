@@ -12,15 +12,15 @@ def init_db():
      if Path(DB_NAME).exists():
          return
 
-conn = get_connection()
+     conn = get_connection()
 
-sql_path = Path(__file__).parent / "schema.sql"
+     sql_path = Path(__file__).parent / "schema.sql"
 
-with open(sql_path, "r", encoding="utf-8") as file:
-    sql_script = file.read()
+     with open(sql_path, "r", encoding="utf-8") as file:
+        sql_script = file.read()
 
-conn.executescript(sql_script)
-conn.commit()
-conn.close()
+     conn.executescript(sql_script)
+     conn.commit()
+     conn.close()
 
-print("База данных создана.")
+     print("База данных создана.")
