@@ -39,7 +39,7 @@
 Для реализации проекта выбрана классическая **трехуровневая архитектура (Layered Architecture)**:
 * **Presentation Layer (Слой интерфейса):** Отвечает за взаимодействие пользователя с системой. Реализуется в виде консольного интерфейса (CLI).
 * **Business Logic Layer (Слой бизнес-логики):** Реализует правила системы (проверка корректности оценок от 2 до 5, расчет среднего балла, выявление задолженностей, проверка прав доступа).
-* **Data Layer (Слой данных):** Обеспечивает хранение информации в базе данных SQlite `students`, `teachers`, `user_roles', 'users', 'students_groups', 'subjects', 'teacher_subjects', 'grades'.
+* **Data Layer (Слой данных):** Обеспечивает хранение информации в базе данных SQlite `students`, `teachers`, `user_roles`, `users`, `student_groups`, `subjects`, `teacher_subjects`, `grades`.
 
 ---
 
@@ -79,7 +79,7 @@
 
 ## 3. Проектирование базы данных
 База данных реализована в SQLite. Структура описана в файле src/students_grades/database/schema.sql. 
-При запуске программы база создается автоматической функцией 'init_db()' из файла 'src/students_grades/database/database.py'.
+При запуске программы база создается автоматической функцией `init_db()` из файла 'src/students_grades/database/database.py'.
 
 ![ER-диаграмма](docs/diagrams/ER.png)
 
