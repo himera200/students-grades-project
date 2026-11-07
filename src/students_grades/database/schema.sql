@@ -85,7 +85,7 @@ INSERT INTO subjects ( name, hours, semester)
 VALUES ('Информатика', 72, 1), ('Математика', 108, 1), ('Программирование', 144, 2), ('Базы данных', 108, 3);
 
 INSERT INTO users (surname, name, patronymic, email, login, password_hash, role_id)
- VALUES ('Иванов', 'Иван', 'Иванович', 'ivanov@mail.ru', 'ivanov', 'hash1', 1), ('Петрова', 'Анна', 'Сергеевна', 'petrova@mail.ru', 'petrova', 'hash2', 1), ('Сидоров', 'Пётр', 'Алексеевич', 'sidorov@mail.ru', 'sidorov', 'hash3', 1), ('Смирнова', 'Ольга', 'Николаевна', 'smirnova@mail.ru', 'smirnova', 'hash4', 2), ('Козлов', 'Дмитрий', 'Андреевич', 'kozlov@mail.ru', 'kozlov', 'hash5', 2), ('Админов', 'Админ', NULL, 'admin@mail.ru', 'admin', 'hash6', 3);
+ VALUES ('Иванов', 'Иван', 'Иванович', 'ivanov@mail.ru', 'ivanov', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 1), ('Петрова', 'Анна', 'Сергеевна', 'petrova@mail.ru', 'petrova', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 1), ('Сидоров', 'Пётр', 'Алексеевич', 'sidorov@mail.ru', 'sidorov', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 1), ('Смирнова', 'Ольга', 'Николаевна', 'smirnova@mail.ru', 'smirnova', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 2), ('Козлов', 'Дмитрий', 'Андреевич', 'kozlov@mail.ru', 'kozlov', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 2), ('Админов', 'Админ', NULL, 'admin@mail.ru', 'admin', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 3);
 
  INSERT INTO students (user_id, group_id, record_book_number)
  VALUES (1, 1, 'ЗК-1001'), (2, 1, 'ЗК-1002'), (3, 2, 'ЗК-1003');
