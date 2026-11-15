@@ -1,7 +1,7 @@
 import hashlib
 
 from src.students_grades.models.student import Student
-from src.students_grades.models.student import Teacher
+from src.students_grades.models.teacher import Teacher
 from src.students_grades.models.user import User
 from src.students_grades.repositories import (
     role_repository,
@@ -132,4 +132,4 @@ def get_teacher_profile(user_id: int) -> Teacher:
     teacher = teacher_repository.get_by_user_id(user_id)
     if not teacher:
         raise ValueError("Профиль преподавателя не найден")
-     return teacher
+    return teacher
