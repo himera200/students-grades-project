@@ -1,5 +1,7 @@
 import hashlib
 
+from src.students_grades.models.student import Student
+from src.students_grades.models.student import Teacher
 from src.students_grades.models.user import User
 from src.students_grades.repositories import (
     role_repository,
@@ -117,3 +119,17 @@ def authenticate(login: str, password: str) -> User | None:
     if user.password_hash != hash_password(password):
         return None
     return user
+
+def get_student_profile(user_id: int) -> Student:
+    student = student_repository.get_by_user_id(user_id)
+    if not student:
+        raise ValueError("Профиль студента не найден")
+    return student
+
+
+
+def get_teacher_profile(user_id: int) -> Teacher:
+    teacher = teacher_repository.get_by_user_id(user_id)
+    if not teacher:
+        raise ValueError("Профиль преподавателя не найден")
+     return teacher

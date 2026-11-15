@@ -1,4 +1,4 @@
-def ask (prompt: str, allow_empty: bool = False) -> str:
+def ask(prompt: str, allow_empty: bool = False) -> str:
     while True:
         value = input(f"{prompt}: ").strip()
         if value or allow_empty:
@@ -82,3 +82,4 @@ def do(action, success_message: str, *args) -> bool:
         return False
     print(f"\n{success_message}")
     return True
+    
